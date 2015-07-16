@@ -14,7 +14,7 @@ UITextView with placeholer and input with limited characters number.
     self.textView.maxTextLength = 10;
     [self.view addSubview:self.textView];
     self.wordsNumLabel.text = [NSString stringWithFormat:@"%lu/%ld", (unsigned long)0, (long)self.textView.maxTextLength];
- 
+    
     __weak typeof (self) weakSelf = self;
     [self.textView addTextDidChangeEvent:^(PlaceholderTextView *textView) {
         typeof (self) strongSelf = weakSelf;
