@@ -6,6 +6,7 @@ UITextView with placeholer and input with limited characters number.
 4.wordsNumLabel 是用来显示输入字数的label
 使用示例:
 
+    self.textView.placeholder=@"请输入xxxx阿达索朗多吉阿克琉斯的距离卡洛斯大家阿莱克斯多久阿萨德卡拉斯京的卡拉胶上地理课:1231123";
     self.textView.font=[UIFont boldSystemFontOfSize:12];
     self.textView.placeholderFont=[UIFont boldSystemFontOfSize:12];
     self.textView.layer.borderWidth=0.5;
@@ -13,6 +14,8 @@ UITextView with placeholer and input with limited characters number.
     self.textView.placeholderColor=[UIColor redColor];
     self.textView.maxTextLength = 10;
     self.wordsNumLabel.text = [NSString stringWithFormat:@"%lu/%ld", (unsigned long)0, (long)self.textView.maxTextLength];
+    [self.view addSubview:self.textView];
+    
      __weak typeof (self) weakSelf = self;
     [self.textView addTextDidChangeEvent:^(PlaceholderTextView *textView) {
         typeof (self) strongSelf = weakSelf;
