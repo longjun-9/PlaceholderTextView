@@ -1,5 +1,4 @@
 # PlaceholderTextView
-UITextView with placeholer and input with limited characters number.  
 1.PlaceholderTextView即可以用代码的方式创建，也可以用xib加载  
 2.placeholder 所在的label，做了横竖屏适配  
 3.测试了释放，确保该类不会导致内存泄露  
