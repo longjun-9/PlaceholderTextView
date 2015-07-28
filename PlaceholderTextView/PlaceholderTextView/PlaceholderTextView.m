@@ -15,6 +15,8 @@
 
 @end
 
+#define kPlaceholderTopMargin  8.0
+
 
 @implementation PlaceholderTextView
 
@@ -42,7 +44,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidBeginEditingNoti:) name:UITextViewTextDidBeginEditingNotification object:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidEndEditingNoti:) name:UITextViewTextDidEndEditingNotification object:self];
     
-    float left=5,top=8,hegiht=30;
+    float left=5,top=kPlaceholderTopMargin;
     
     /**
      *  默认设置
@@ -52,29 +54,18 @@
     _placeholderFont = self.font;
     _maxTextLength = 1000;
     
-    _placeholderLabel=[[UILabel alloc] initWithFrame:CGRectMake(left, top, _placeholdeWidth, hegiht)];
-    _placeholderLabel.numberOfLines=0;
-    _placeholderLabel.lineBreakMode=NSLineBreakByCharWrapping;
+    _placeholderLabel=[[UILabel alloc] initWithFrame:CGRectMake(left, top, _placeholdeWidth, self.frame.size.height - 2*top)];
+    _placeholderLabel.numberOfLines = 0;
+    _placeholderLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     _placeholderLabel.textColor = _placeholderColor;
+    _placeholderLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
     if (self.text.length > 0) {
         _placeholderLabel.hidden=YES;
     }
+    
     [self addSubview:_placeholderLabel];
-
-    _placeholderLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    NSLayoutConstraint *leadingConstraint = [NSLayoutConstraint constraintWithItem:_placeholderLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:left];
-    
-    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:_placeholderLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:top];
-    
-    NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:_placeholderLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:1 constant:-2*left];
-    
-    [self addConstraint:leadingConstraint];
-    [self addConstraint:topConstraint];
-    [self addConstraint:widthConstraint];
-
 }
-
 
 - (float)boundingRectWithSize:(CGSize)size withFont:(UIFont *)font{
     NSDictionary *attribute = @{NSFontAttributeName:font};
@@ -92,23 +83,36 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    
     /**
      *  layout时获取真实值
      */
     _placeholderLabel.font =  _placeholderFont;
     _placeholderLabel.textColor= _placeholderColor;
     _placeholderLabel.text= _placeholder;
-    
+
+    float chosenHeight = 0;
+    float leftHeight = CGRectGetHeight(self.frame)-kPlaceholderTopMargin;
     float height=  [self boundingRectWithSize:CGSizeMake(_placeholderLabel.frame.size.width, MAXFLOAT) withFont:_placeholderLabel.font];
-    if (height > CGRectGetHeight(_placeholderLabel.frame) && height < CGRectGetHeight(self.frame))
+    /**
+     *  chosenHeight不能超过leftHeight
+     */
+    if (height > leftHeight)
     {
-        CGRect frame=_placeholderLabel.frame;
-        frame.size.height=height;
-        _placeholderLabel.frame=frame;
-        
+        CGFloat lineHeight = _placeholderLabel.font.lineHeight;
+        NSInteger lines = floorf(leftHeight/lineHeight);
+        chosenHeight = lines * lineHeight;
+
+    }
+    else
+    {
+        chosenHeight = height;
     }
 
+    CGRect frame=_placeholderLabel.frame;
+    frame.size.height=chosenHeight;
+    _placeholderLabel.frame=frame;
+    
+    
 }
 
 

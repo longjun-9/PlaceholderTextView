@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DDA55831B67602E0042F0AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA55821B67602E0042F0AB /* Default-568h@2x.png */; };
 		1DE44DA11B564E05004B8D02 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE44DA01B564E05004B8D02 /* ViewController1.m */; };
 		66D553C61A35F4CB00560BA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D553C51A35F4CB00560BA4 /* main.m */; };
 		66D553C91A35F4CB00560BA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D553C81A35F4CB00560BA4 /* AppDelegate.m */; };
 		66D553CC1A35F4CC00560BA4 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D553CB1A35F4CB00560BA4 /* ViewController2.m */; };
 		66D553CF1A35F4CC00560BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D553CD1A35F4CC00560BA4 /* Main.storyboard */; };
 		66D553D11A35F4CC00560BA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D553D01A35F4CC00560BA4 /* Images.xcassets */; };
-		66D553D41A35F4CC00560BA4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66D553D21A35F4CC00560BA4 /* LaunchScreen.xib */; };
 		66D553EC1A35F50900560BA4 /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D553EB1A35F50900560BA4 /* PlaceholderTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DDA55821B67602E0042F0AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1DE44D9F1B564E05004B8D02 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
 		1DE44DA01B564E05004B8D02 /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
 		66D553C01A35F4CB00560BA4 /* PlaceholderTextView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaceholderTextView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,7 +30,6 @@
 		66D553CB1A35F4CB00560BA4 /* ViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		66D553CE1A35F4CC00560BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66D553D01A35F4CC00560BA4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		66D553D31A35F4CC00560BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		66D553EA1A35F50900560BA4 /* PlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
 		66D553EB1A35F50900560BA4 /* PlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,6 +48,7 @@
 		66D553B71A35F4CB00560BA4 = {
 			isa = PBXGroup;
 			children = (
+				1DDA55821B67602E0042F0AB /* Default-568h@2x.png */,
 				66D553C21A35F4CB00560BA4 /* PlaceholderTextView */,
 				66D553C11A35F4CB00560BA4 /* Products */,
 			);
@@ -73,7 +74,6 @@
 				1DE44DA01B564E05004B8D02 /* ViewController1.m */,
 				66D553CD1A35F4CC00560BA4 /* Main.storyboard */,
 				66D553D01A35F4CC00560BA4 /* Images.xcassets */,
-				66D553D21A35F4CC00560BA4 /* LaunchScreen.xib */,
 				66D553C31A35F4CB00560BA4 /* Supporting Files */,
 			);
 			path = PlaceholderTextView;
@@ -155,8 +155,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				66D553CF1A35F4CC00560BA4 /* Main.storyboard in Resources */,
-				66D553D41A35F4CC00560BA4 /* LaunchScreen.xib in Resources */,
 				66D553D11A35F4CC00560BA4 /* Images.xcassets in Resources */,
+				1DDA55831B67602E0042F0AB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,14 +184,6 @@
 				66D553CE1A35F4CC00560BA4 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		66D553D21A35F4CC00560BA4 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				66D553D31A35F4CC00560BA4 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
