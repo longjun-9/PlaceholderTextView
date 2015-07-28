@@ -39,7 +39,6 @@
     self.phTv.layer.borderColor=[UIColor lightGrayColor].CGColor;
     self.phTv.placeholderColor=[UIColor lightGrayColor];
     self.phTv.maxTextLength = 10;
-    [self.view addSubview:self.phTv];
     self.label1.text = [NSString stringWithFormat:@"%lu/%ld", (unsigned long)0, (long)self.phTv.maxTextLength];
     
     __weak typeof (self) weakSelf = self;
